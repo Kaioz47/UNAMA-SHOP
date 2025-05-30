@@ -19,7 +19,7 @@ UNAMA SHOP é um projeto de site de comércio eletrônico focado na venda de ele
 - **Anthony Cardoso** – Designer de Interface (UI/UX)  
   Responsável pela aparência do site, escolha de cores, responsividade e organização visual para melhor experiência do usuário.
 
-- **Gabryela Gonçalves** – Organizadora de Conteúdo  
+- **Gabryella Gonçalves** – Organizadora de Conteúdo  
   Responsável pela criação e organização dos textos visíveis no site, como descrições de produtos, títulos de seções e informações das promoções.
 
 - **Rafael Rocha** – Responsável pela Documentação do Projeto  
