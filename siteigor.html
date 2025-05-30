@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UNAMA SHOP - Os melhores eletrodomésticos com os menores preços.">
+  <meta name="author" content="UNAMA SHOP">
+  <link rel="stylesheet" href="siteigor.css">
+  <title>UNAMA SHOP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .auth-links {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .auth-links a,
+    .auth-links span,
+    .auth-links button {
+      color: #fff;
+      text-decoration: none;
+      background-color: #0077cc;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .auth-links a:hover,
+    .auth-links button:hover {
+      background-color: #005fa3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    header {
+      position: relative;
+      background-color: #49A646;
+      padding: 20px;
+      text-align: center;
+      
+    }
+
+    
+
+    header img {
+      height: 60px;
+      margin: 0 10px;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .produto {
+      border: 1px solid #49A646;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    .produto img {
+      width: 100%;
+      height: auto;
+    }
+
+    #ofertas-do-dia {
+      background-color: #f8f8f8;
+      padding: 20px;
+    }
+
+    .carrossel-container {
+      position: relative;
+      max-width: 33%;
+      margin: 10px auto;
+      overflow: hidden;
+    }
+
+    .carrossel-slide {
+      display: none;
+      text-align: center;
+    }
+
+    .carrossel-slide img {
+      width: 50%;
+      height: auto;
+      border-radius: px;
+    }
+
+    .carrossel-prev,
+    .carrossel-next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      font-size: 30px;
+      color: white;
+      background-color: rgb(0, 0, 0);
+      transform: translateY(-50%);
+      border: none;
+    }
+
+    .carrossel-prev {
+      left: 0;
+    }
+
+    .carrossel-next {
+      right: 0;
+    }
+
+    .carrossel-indicadores {
+      text-align: center;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #49A646;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.active {
+      background-color: #49A646;
+    }
+
+    .fade {
+      animation: fade 1s;
+    }
+
+    .carrossel-slide h3,
+    .carrossel-slide p {
+      margin: 10px 0;
+    }
+
+    .carrossel-slide button {
+      padding: 8px 16px;
+      background-color: #49A646;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .carrossel-slide button:hover {
+      background-color: #49A646;
+    }
+
+    @keyframes fade {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
+
+    .produtos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #carrinho-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #49A646;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    footer {
+      text-align: center;
+      background: #49A646;
+      color: white;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div>
+    <img src="fotos/logo-removebg-preview.png" alt="logo">
+    <img src="fotos/unama.webp" alt="UNAMA">
+  </div>
+  <h1>UNAMA SHOP</h1>
+
+  <!-- ÁREA DE AUTENTICAÇÃO -->
+ <!-- ÁREA DE AUTENTICAÇÃO -->
+<div class="auth-container">
+  <div class="auth-links">
+    <span>Olá Igor</span>
+  </div>
+</div>
+
+
+  <nav>
+    <a href="siteigor.html">Home</a>
+    <a href="siteigorprodutos.html">Produtos</a>
+    <a href="siteigorcarrinho.html">Carrinho</a>
+    <a href="siteigorquemsomos.html">Quem Somos</a>
+  </nav>
+</header>
+
+
+  <!-- Ícone do carrinho flutuante -->
+  <div id="carrinho-icon" onclick="window.location.href='siteigorcarrinho.html'">
+    🛒 <span id="contador-carrinho">0</span>
+  </div>
+
+  <!-- Carrossel de banners e produtos -->
+  <!-- Carrossel de banners e produtos -->
+<section class="carrossel-container">
+  <div class="carrossel-slide fade">
+    <img src="fotos/geladeira.jpg" alt="Slide 1">
+    <h3>Geladeira Electrolux</h3>
+    <p>Aproveite o super desconto!</p>
+    <button onclick="adicionarAoCarrinho('Geladeira Electrolux', 3500.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="carrossel-slide fade">
+    <img src="fotos/fogao.jpg" alt="Slide 2">
+    <h3>Fogão Electrolux</h3>
+    <p>O melhor para sua cozinha!</p>
+    <button onclick="adicionarAoCarrinho('Fogão Electrolux', 1780.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="carrossel-slide fade">
+    <img src="fotos/Fritadeira Elétrica Start Fry Elgin 3,5 Litros Preta 110v - Air Fryer.jpg" alt="Slide 3">
+    <h3>Fritadeira Start Fry</h3>
+    <p>Praticidade no seu dia a dia.</p>
+    <button onclick="adicionarAoCarrinho('Fritadeira Elétrica Start', 299.90)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="carrossel-slide fade">
+    <img src="fotos/Ventilador.jpg" alt="Slide 4">
+    <h3>Ventilador Mondial</h3>
+    <p>Refresque-se com qualidade.</p>
+    <button onclick="adicionarAoCarrinho('Ventilador de Mesa Mondial', 189.90)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="carrossel-slide fade">
+    <img src="fotos/unama.webp" alt="Slide 5">
+    <h3>UNAMA SHOP</h3>
+    <p>Orgulho em ser UNAMA.</p>
+    <button onclick="window.location.href='siteigorquemsomos.html'">Conheça</button>
+  </div>
+  <div class="carrossel-slide fade">
+    <img src="fotos/logo-removebg-preview.png" alt="Slide 6">
+    <h3>UNAMA SHOP</h3>
+    <p>Os melhores preços estão aqui!</p>
+    <button onclick="window.location.href='siteigorprodutos.html'">Ver Produtos</button>
+  </div>
+  <div class="carrossel-slide fade">
+    <img src="fotos/logo-removebg-preview.png" alt="Slide 7">
+    <h3>UNAMA SHOP</h3>
+    <p>Compre fácil, receba rápido!</p>
+    <button onclick="window.location.href='siteigorcarrinho.html'">Ir para o Carrinho</button>
+  </div>
+
+  <a class="carrossel-prev" onclick="mudarSlide(-1)">&#10094;</a>
+  <a class="carrossel-next" onclick="mudarSlide(1)">&#10095;</a>
+
+  <div class="carrossel-indicadores">
+    <span class="dot" onclick="irParaSlide(1)"></span>
+    <span class="dot" onclick="irParaSlide(2)"></span>
+    <span class="dot" onclick="irParaSlide(3)"></span>
+    <span class="dot" onclick="irParaSlide(4)"></span>
+    <span class="dot" onclick="irParaSlide(5)"></span>
+    <span class="dot" onclick="irParaSlide(6)"></span>
+    <span class="dot" onclick="irParaSlide(7)"></span>
+  </div>
+</section>
+
+
+  <section id="home">
+    <h2>Bem-vindo à melhor loja de eletrodomésticos da Unama!</h2>
+    <p>Confira nossos produtos incríveis com os melhores preços.</p>
+  </section>
+
+  <section id="promocoes">
+    <h2>Promoções</h2>
+    <div class="produtos-grid">
+      <div class="produto">
+        <img src="fotos/geladeira.jpg" alt="Geladeira Electrolux">
+        <h3>Geladeira Electrolux</h3>
+        <p>De <s>R$ 5000,00</s> por <strong>R$ 3500,00</strong></p>
+        <button onclick="adicionarAoCarrinho('Geladeira Electrolux', 3500.00)">Adicionar ao Carrinho</button>
+      </div>
+      <div class="produto">
+        <img src="fotos/fogao.jpg" alt="Fogão Electrolux">
+        <h3>Fogão Electrolux</h3>
+        <p>De <s>R$ 3000,00</s> por <strong>R$ 1780,00</strong></p>
+        <button onclick="adicionarAoCarrinho('Fogão 5 bocas Electrolux', 1780.00)">Adicionar ao Carrinho</button>
+      </div>
+       <div class="produto">
+        <img src="fotos/Tanquinho Lavamax Eco 20 Kg Suggar - 110V.avif" alt="Tanquinho Lavamax">
+        <h3>Tanquinho Lavamax</h3>
+        <p>De <s>R$ 1500</s> por <strong>R$ 1780,00</strong></p>
+        <button onclick="adicionarAoCarrinho('Tanquinho Lavamax',900)">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+
+ 
+
+
+<!-- Novos Produtos ou Mais Vendidos -->
+<section id="Mais Vendidos">
+  <h2>Novos Produtos</h2>
+  <div class="produtos-grid">
+    <div class="produto">
+      <img src="fotos/fogao.jpg" alt="Fogão Electrolux">
+      <h3>Fogão Electrolux</h3>
+      <p>R$ 1780,00</p>
+      <button onclick="adicionarAoCarrinho('Fogão Electrolux', 1780.00)">Adicionar ao Carrinho</button>
+    </div>
+
+    <!-- Novo Produto Inserido Aqui -->
+    <div class="produto">
+      <img src="fotos/geladeira.jpg" alt="Geladeira Brastemp">
+      <h3>Geladeira Brastemp Inox</h3>
+      <p>R$ 3299,00</p>
+      <button onclick="adicionarAoCarrinho('Geladeira Brastemp Inox', 3299.00)">Adicionar ao Carrinho</button>
+    </div>
+
+    <div class="produto">
+      <img src="fotos/Fritadeira Elétrica Start Fry Elgin 3,5 Litros Preta 110v - Air Fryer.jpg" alt="Fritadeira Elétrica">
+      <h3>Fritadeira Start Fry</h3>
+      <p>R$ 299,90</p>
+      <button onclick="adicionarAoCarrinho('Fritadeira Start Fry', 299.90)">Adicionar ao Carrinho</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Seção de depoimentos -->
+<section id="depoimentos">
+  <h2>O que nossos clientes dizem</h2>
+  <div class="depoimento">
+    <p>"Excelente atendimento e entrega rápida! Comprei minha geladeira e ela chegou em ótimo estado!"</p>
+    <span>- João Silva</span>
+  </div>
+  <div class="depoimento">
+    <p>"Fiquei muito feliz com a minha fritadeira! Super prática e entrega no prazo."</p>
+    <span>- Maria Oliveira</span>
+  </div>
+</section>
+
+<!-- Promoções adicionais -->
+<section id="promocoes-adicionais">
+  <h2>Promoções Imperdíveis!</h2>
+  <div class="produtos-grid">
+    <div class="produto">
+      <img src="fotos/Lavadora de Roupas Electrolux 11Kg LES11 Essencial Care com Filtro pega Fiapos – Branca - 110V.avif" alt="Lavadora Electrolux" />
+      <h3>Lavadora Electrolux</h3>
+      <p>R$ 1800,00</p>
+      <button onclick="adicionarAoCarrinho('Lavadora Electrolux', 1800.00)">Adicionar ao Carrinho</button>
+      <p><strong>Frete Grátis para todo o Brasil!</strong></p>
+    </div>
+
+    <!-- Novo Produto Adicionado Aqui -->
+    <div class="produto">
+      <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQ4ksZ1hZQnCN6VAXXiwBdUaeUTYOQ42JsHyYN0awpnzEQv3qd5MtFmrzuZiyqVlTXvXTUYsSoLm1WTHFky4myNZgDZySVGqF9CAT928W08p8Yyh-IdOdpqdGNqgyg8W2pOCVjiDQk&usqp=CAc" alt="Aspirador de Pó WAP">
+      <h3>Aspirador de Pó WAP</h3>
+      <p>R$ 399,00</p>
+      <button onclick="adicionarAoCarrinho('Aspirador de Pó WAP', 399.00)">Adicionar ao Carrinho</button>
+      <p><strong>Leve agora com 15% de desconto à vista!</strong></p>
+    </div>
+
+    <div class="produto">
+      <img src="fotos/Bomba Elétrica de Ar Portátil para Carro - Compressor Digital 150 PSI.webp" alt="Bomba de Ar" />
+      <h3>Bomba Elétrica de Ar</h3>
+      <p>R$ 625,00</p>
+      <button onclick="adicionarAoCarrinho('Bomba de Ar', 625.00)">Adicionar ao Carrinho</button>
+      <p><strong>Parcelamento em até 12x sem juros!</strong></p>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* Estilos para as melhorias */
+  .oferta-do-dia {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .oferta-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .oferta-timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    margin-top: 20px;
+  }
+
+  .produtos-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .produto {
+    width: 45%;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .depoimento {
+    background-color: #e7f7e7;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .promo-banner {
+    background-color: #ffffff;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .promo-banner img {
+    max-width: 20%;
+    border-radius: 5px;
+  }
+
+  /* Layout adaptável */
+  @media (max-width: 768px) {
+    .oferta-do-dia {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .produtos-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .produto {
+      width: 80%;
+    }
+  }
+</style>
+
+  <section id="contato">
+    <h2>Entre em Contato</h2>
+    <p>Email: Unamashop@gmail.com</p>
+    <p>Telefone: (91) 3815-6303</p>
+    <p>WhatsApp: (91) 98180-2585</p>
+    <p>Instagram: @unama_shop</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 UNAMASHOP. Todos os direitos reservados.</p>
+  </footer>
+
+   <script>
+    const produtos = [
+      {
+        nome: 'Geladeira Electrolux',
+        preco: 3500.00,
+        imagem: 'fotos/geladeira.jpg'
+      },
+      {
+        nome: 'Fogão 5 bocas Electrolux',
+        preco: 1780.00,
+        imagem: 'fotos/fogao.jpg'
+      },
+      {
+        nome: 'Fritadeira Elétrica Start',
+        preco: 299.90,
+        imagem: 'fotos/Fritadeira Elétrica Start Fry Elgin 3,5 Litros Preta 110v - Air Fryer.jpg'
+      },
+      {
+        nome: 'Ventilador de Mesa Mondial',
+        preco: 189.90,
+        imagem: 'fotos/Ventilador.jpg'
+      }
+    ];
+
+    function exibirOfertaDoDia() {
+      const item = produtos[Math.floor(Math.random() * produtos.length)];
+      const container = document.getElementById('oferta-container');
+      container.innerHTML = `
+        <div class="produto">
+          <img src="${item.imagem}" alt="${item.nome}">
+          <h3>${item.nome}</h3>
+          <p><strong>R$ ${item.preco.toFixed(2)}</strong></p>
+          <button onclick="adicionarAoCarrinho('${item.nome}', ${item.preco})">Adicionar ao Carrinho</button>
+        </div>
+      `;
+    }
+
+    function adicionarAoCarrinho(nome, preco) {
+      const item = { nome, preco }; // Corrigido para usar o campo 'nome'
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.push(item);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      alert(`${nome} adicionado ao carrinho por R$ ${preco.toFixed(2)}.`);
+      atualizarContadorCarrinho();
+    }
+
+    function atualizarContadorCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      document.getElementById('contador-carrinho').textContent = carrinho.length;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      exibirOfertaDoDia();
+      atualizarContadorCarrinho();
+      showSlides(slideIndex);
+      setInterval(() => mudarSlide(1), 5000);
+
+      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      const authArea = document.getElementById('authArea');
+      const userArea = document.getElementById('userArea');
+      const nomeSpan = document.getElementById('userName');
+      const emailSpan = document.getElementById('userEmail');
+
+      if (usuario && usuario.nome && usuario.email) {
+        nomeSpan.textContent = usuario.nome;
+        emailSpan.textContent = usuario.email;
+        authArea.classList.add('hidden');
+        userArea.classList.remove('hidden');
+      } else {
+        authArea.classList.remove('hidden');
+        userArea.classList.add('hidden');
+      }
+    });
+
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName('carrossel-slide');
+    const dots = document.getElementsByClassName('dot');
+
+    function showSlides(n) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        if (dots[i]) dots[i].classList.remove("active");
+      }
+      slides[n].style.display = "block";
+      if (dots[n]) dots[n].classList.add("active");
+    }
+
+    function mudarSlide(n) {
+      slideIndex = (slideIndex + n + slides.length) % slides.length;
+      showSlides(slideIndex);
+    }
+
+    function irParaSlide(n) {
+      slideIndex = n - 1;
+      showSlides(slideIndex);
+    }
+  </script>
+</body>
+</html>

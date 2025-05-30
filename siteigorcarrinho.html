@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="siteigor.css" />
+  <title>Carrinho de Compras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #49A646;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .item-carrinho {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .item-carrinho h3 {
+      margin: 0 0 5px 0;
+    }
+
+    .item-carrinho p {
+      margin: 0;
+    }
+
+    .item-carrinho button {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .item-carrinho button:hover {
+      background-color: #c9302c;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .botoes-carrinho {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .botoes-carrinho button {
+      background-color: #f0ad4e;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .botoes-carrinho button:hover {
+      background-color: #ec971f;
+    }
+
+    .botoes-carrinho .finalizar {
+      background-color: #5cb85c;
+    }
+
+    .botoes-carrinho .finalizar:hover {
+      background-color: #4cae4c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="fotos/logo-removebg-preview.png" alt="Logo UNAMA SHOP" height="50">
+    <h1>Carrinho de Compras</h1>
+    <nav>
+      <a href="siteigor.html">Home</a>
+      <a href="siteigorprodutos.html">Produtos</a>
+      <a href="siteigorquemsomos.html">Quem Somos</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="lista-carrinho"></div>
+    <div class="total" id="total-compra">Total: R$ 0,00</div>
+    <div class="botoes-carrinho">
+      <button onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
+      <button class="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 UNAMA SHOP. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function carregarCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      const lista = document.getElementById("lista-carrinho");
+      const totalSpan = document.getElementById("total-compra");
+
+      lista.innerHTML = "";
+      let total = 0;
+
+      if (carrinho.length === 0) {
+        lista.innerHTML = "<p>Seu carrinho está vazio.</p>";
+        totalSpan.textContent = "Total: R$ 0,00";
+        return;
+      }
+
+      carrinho.forEach((item, index) => {
+        const subtotal = item.preco * (item.quantidade || 1);
+        total += subtotal;
+
+        const div = document.createElement("div");
+        div.className = "item-carrinho";
+        div.innerHTML = `
+          <div>
+            <h3>${item.nome}</h3>
+            <p>Preço: R$ ${item.preco.toFixed(2)}</p>
+            <p>Quantidade: ${item.quantidade || 1}</p>
+            <p><strong>Subtotal: R$ ${subtotal.toFixed(2)}</strong></p>
+          </div>
+          <button onclick="removerItem(${index})">Remover</button>
+        `;
+        lista.appendChild(div);
+      });
+
+      totalSpan.textContent = "Total: R$ " + total.toFixed(2);
+    }
+
+    function removerItem(index) {
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      carrinho.splice(index, 1);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      carregarCarrinho();
+    }
+
+    function esvaziarCarrinho() {
+      localStorage.removeItem("carrinho");
+      carregarCarrinho();
+    }
+
+    function finalizarCompra() {
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  let total = 0;
+
+  carrinho.forEach(item => {
+    total += item.preco * (item.quantidade || 1);
+  });
+
+  // Salva o total no localStorage
+  localStorage.setItem("totalCompra", total.toFixed(2));
+
+  // Redireciona para a página de finalização
+  window.location.href = "finalizarcompra.html";
+}
+
+
+    document.addEventListener("DOMContentLoaded", carregarCarrinho);
+  </script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+/* ===========================
+   CABEÇALHO
+=========================== */
+header {
+  background: #4CAF50;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+header img {
+  height: auto;
+  max-height: 60px;
+  margin: 0 10px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.auth-links {
+  margin: 10px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===========================
+   SEÇÕES GERAIS
+=========================== */
+section {
+  padding: 20px;
+  text-align: center;
+}
+
+/* ===========================
+   CARROSSEL
+=========================== */
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+
+.carrossel-imagens {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 300%;
+}
+
+.carrossel-imagem {
+  width: 33.33%;
+  height: 300px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.carrossel-prev,
+.carrossel-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 30px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.carrossel-prev:hover,
+.carrossel-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carrossel-prev { left: 15px; }
+.carrossel-next { right: 15px; }
+
+.produto {
+  border: 5px solid #ddd;
+  padding: 20px;  /* Aumentando o padding para melhorar o layout */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;  /* Flexbox para colocar os elementos na coluna */
+  justify-content: space-between;  /* Garantindo que o conteúdo se distribua uniformemente */
+  width: 220px;
+  min-height: 380px;  /* Ajuste para a altura */
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar destaque */
+}
+
+.produto:hover {
+  transform: scale(1.05); /* Efeito de hover */
+}
+
+/* ===========================
+   IMAGEM DO PRODUTO
+=========================== */
+.produto img {
+  width: 100%;
+  height: 200px;  /* Altura fixa para que todas as imagens fiquem consistentes */
+  object-fit: cover;  /* A imagem se ajusta ao tamanho do container */
+  object-position: center;
+  margin-bottom: 15px;  /* Espaço entre a imagem e o texto */
+  border-radius: 8px;
+}
+
+/* ===========================
+   TÍTULO E DESCRIÇÃO
+=========================== */
+.produto h3, .produto p {
+  color: #333;
+  margin: 0 0 10px 0; /* Margem para separar título e descrição */
+}
+
+.produto p {
+  font-size: 14px;
+  color: #777;  /* Cor mais suave para a descrição */
+  text-align: center;
+  flex-grow: 1; /* Faz com que a descrição cresça, mas não ultrapasse a altura mínima */
+}
+
+/* ===========================
+   BOTÃO DE ADICIONAR AO CARRINHO
+=========================== */
+.produto button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;  /* Botão ocupa toda a largura do card */
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;  /* Espaço acima do botão */
+}
+
+.produto button:hover {
+  background: #45a049;  /* Efeito de hover no botão */
+}
+
+/* ===========================
+   SEÇÕES ESPECIAIS (PROMOÇÕES E MAIS VENDIDOS)
+=========================== */
+#promocoes .produto, #mais-vendidos .produto {
+  width: 220px;
+  height: 380px;
+  padding: 20px;
+  margin: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para os cards */
+}
+
+#promocoes .produto:hover, #mais-vendidos .produto:hover {
+  transform: scale(1.05);
+}
+
+#promocoes .produto img, #mais-vendidos .produto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px; /* Espaço entre imagem e texto */
+}
+
+#promocoes .produto button, #mais-vendidos .produto button {
+  background: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: auto; /* Faz o botão ficar na parte inferior */
+}
+
+#promocoes .produto button:hover, #mais-vendidos .produto button:hover {
+  background: #45a049;
+}
+
+/* ===========================
+   GRELHA FLEXÍVEL PARA AS SEÇÕES
+=========================== */
+#promocoes .categoria, #mais-vendidos .categoria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+
+
+#promocoes, #mais-vendidos {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 45px 20px;
+  border-radius: 10px;
+  margin: 60px auto 80px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Layout flexível para os produtos dentro das seções especiais */
+#promocoes .categoria,
+#mais-vendidos .categoria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* ✅ Cards de produto ajustados */
+#promocoes .produto,
+#mais-vendidos .produto {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  width: 500px;              /* Aumentado de 220px → mais espaço */
+  height: 380px;             /* Aumentado para acomodar imagem + conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+#promocoes .produto:hover,
+#mais-vendidos .produto:hover {
+  transform: scale(1.05);
+}
+
+#promocoes .produto h3,
+#promocoes .produto p,
+#mais-vendidos .produto h3,
+#mais-vendidos .produto p {
+  color: #333;
+  text-align: center;
+}
+
+/* ✅ Imagens proporcionais e equilibradas */
+#promocoes .produto img,
+#mais-vendidos .produto img {
+  width: 100%;
+  max-width: 140px;         /* Tamanho controlado */
+  aspect-ratio: 3 / 8;      /* Mantém proporção de produto */
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto 10px auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Botões */
+#promocoes .produto button,
+#mais-vendidos .produto button {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#promocoes .produto button:hover,
+#mais-vendidos .produto button:hover {
+  background: #45a049;
+}
+
+
+
+
+
+
+
+
+
+/* ===========================
+   LOGIN / CADASTRO
+=========================== */
+.login-container, .cadastro-container {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2, .cadastro-container h2 {
+  color: #4CAF50;
+}
+
+.login-container input, .cadastro-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container button, .cadastro-container button {
+  background: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-container button:hover, .cadastro-container button:hover {
+  background: #45a049;
+}
+
+/* ===========================
+   CARRINHO DE COMPRAS
+=========================== */
+.carrinho {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.carrinho h2 {
+  color: #4CAF50;
+}
+
+.carrinho-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.carrinho-item:last-child {
+  border-bottom: none;
+}
+
+.carrinho-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.carrinho-total {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* ===========================
+   RODAPÉ
+=========================== */
+footer {
+  background: #ddd;
+  color: #333;
+  padding: 10px;
+  text-align: center;
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="siteigor.css" />
+  <title>Produtos</title>
+  <style>
+    .categoria {
+      margin-bottom: 40px;
+    }
+
+    .produto {
+      display: inline-block;
+      width: 250px;
+      margin: 15px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #f9f9f9;
+    }
+
+    .produto:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .produto img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .produto h3 {
+      font-size: 1.1rem;
+      margin: 10px 0 5px;
+    }
+
+    .produto p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 8px 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <img src="fotos/logo-removebg-preview.png" alt="logo" />
+      <img src="fotos/unama.webp" alt="UNAMA" />
+    </div>
+    <h1>Nossos Produtos</h1>
+    <nav>
+      <a href="siteigor.html">Home</a>
+      <a href="siteigorprodutos.html">Produtos</a>
+      <a href="siteigorcarrinho.html">Carrinho</a>
+      <a href="siteigorquemsomos.html">Quem Somos</a>
+    </nav>
+  </header>
+
+  <section id="produtos">
+    <h2>Confira nossos produtos</h2>
+
+    <!-- Linha Branca -->
+    <div class="categoria">
+      <h3>Linha Branca</h3>
+      <div class="produto"><img src="fotos/Geladeira Refrigerador Brastemp Duplex BRM44 Frost Free 375 Litros - Branco - 220V.webp" alt="Geladeira Brastemp" /><h3>Geladeira Brastemp</h3><p>R$ 3500,00</p><button onclick="adicionarAoCarrinho('Geladeira Brastemp', 3500.00)">Adicionar ao carrinho</button></div>
+      <div class="produto"><img src="fotos/Freezer Electrolux 143L 1 Porta Horizontal Degelo Manual HE150.webp" alt="Freezer Electrolux" /><h3>Freezer Electrolux</h3><p>R$ 1000,00</p><button onclick="adicionarAoCarrinho('Freezer Electrolux', 1000.00)">Adicionar ao carrinho</button></div>
+      <div class="produto"><img src="fotos/Lavadora de Roupas Electrolux 11Kg LES11 Essencial Care com Filtro pega Fiapos – Branca - 110V.avif" alt="Lavadora Electrolux" /><h3>Lavadora Electrolux</h3><p>R$ 1800,00</p><button onclick="adicionarAoCarrinho('Lavadora Electrolux', 1800.00)">Adicionar ao carrinho</button></div>
+    </div>
+
+    <!-- Eletroportáteis -->
+    <div class="categoria">
+      <h3>Eletroportáteis</h3>
+      <div class="produto"><img src="fotos/Fritadeira Air Fry Philco Oven PFR2200P 12L Preta.webp" alt="Fritadeira Philco" /><h3>Fritadeira Philco</h3><p>R$ 800,00</p><button onclick="adicionarAoCarrinho('Fritadeira Philco', 800.00)">Adicionar ao carrinho</button></div>
+      <div class="produto"><img src="fotos/Liquidificador Mondial, Turbo Power 550W, 220V, Preto, 2,2 L - L-99 FB.jpg" alt="Liquidificador Mondial" /><h3>Liquidificador Mondial</h3><p>R$ 500,00</p><button onclick="adicionarAoCarrinho('Liquidificador Mondial', 500.00)">Adicionar ao carrinho</button></div>
+      <div class="produto"><img src="fotos/Fritadeira Elétrica Start Fry Elgin 3,5 Litros Preta 110v - Air Fryer.jpg" alt="Fritadeira Start" /><h3>Fritadeira Elétrica Start</h3><p>R$ 299,90</p><button onclick="adicionarAoCarrinho('Fritadeira Elétrica Start', 299.90)">Adicionar ao carrinho</button></div>
+    </div>
+
+    <!-- Eletrodomésticos -->
+    <div class="categoria">
+      <h3>Eletrodomésticos</h3>
+      <div class="produto"><img src="fotos/fogao.jpg" alt="Fogão Electrolux" /><h3>Fogão Electrolux</h3><p>R$ 1780,00</p><button onclick="adicionarAoCarrinho('Fogão Electrolux', 1780.00)">Adicionar ao carrinho</button></div>
+      <div class="produto"><img src="fotos/Fogão Atlas 4 Bocas Mônaco Top Glass com Mesa de Vidro e Acendimento Automático Bivolt – Preto.avif" alt="Fogão Atlas" /><h3>Fogão Atlas Mônaco</h3><p>R$ 1500,00</p><button onclick="adicionarAoCarrinho('Fogão Atlas Mônaco', 1500.00)">Adicionar ao carrinho</button></div>
+      <div class="produto"><img src="fotos/Tanquinho Lavamax Eco 20 Kg Suggar - 110V.avif" alt="Tanquinho Lavamax" /><h3>Tanquinho Lavamax</h3><p>R$ 1800,00</p><button onclick="adicionarAoCarrinho('Tanquinho Lavamax', 1800.00)">Adicionar ao carrinho</button></div>
+    </div>
+
+    <!-- Ventilação -->
+    <div class="categoria">
+      <h3>Ventilação</h3>
+      <div class="produto"><img src="fotos/Ventilador.jpg" alt="Ventilador Mondial" /><h3>Ventilador Mondial</h3><p>R$ 189,90</p><button onclick="adicionarAoCarrinho('Ventilador Mondial', 189.90)">Adicionar ao carrinho</button></div>
+      <div class="produto"><img src="fotos/Ventilador Mallory Coluna Delfos TS+ Preto Grafite 40 cm 220V.jpg" alt="Ventilador Mallory" /><h3>Ventilador Mallory</h3><p>R$ 600,00</p><button onclick="adicionarAoCarrinho('Ventilador Mallory', 600.00)">Adicionar ao carrinho</button></div>
+    </div>
+
+    <!-- Lavadoras e Lava e Seca -->
+    <div class="categoria">
+      <h3>Lavadoras e Lava e Seca</h3>
+      <div class="produto"><img src="fotos/Lava E Seca 11Kg Hisense Titanium 11Programas Wi-Fi - Wd3s11 - 110V.avif" alt="Hisense" /><h3>Lava e Seca Hisense</h3><p>R$ 3499,90</p><button onclick="adicionarAoCarrinho('Lava e Seca Hisense', 3499.90)">Adicionar ao carrinho</button></div>
+      <div class="produto"><img src="fotos/Lava e Seca Midea HealthGuard Smart MF200D110WB GK Titanium com 14 Programas e Wi-Fi – 11 7kg - 110V.avif" alt="Lava e Seca Midea" /><h3>Lava e Seca Midea</h3><p>R$ 3299,90</p><button onclick="adicionarAoCarrinho('Lava e Seca Midea', 3299.90)">Adicionar ao carrinho</button></div>
+    </div>
+
+    <!-- Outros -->
+<div class="categoria">
+  <h3>Outros Produtos</h3>
+  
+  <div class="produto">
+    <img src="fotos/Bomba Elétrica de Ar Portátil para Carro - Compressor Digital 150 PSI.webp" alt="Bomba de Ar" />
+    <h3>Bomba Elétrica de Ar</h3>
+    <p>R$ 625,00</p>
+    <button onclick="adicionarAoCarrinho('Bomba de Ar', 625.00)">Adicionar ao carrinho</button>
+  </div>
+
+  <div class="produto">
+    <img src="https://tupan.agilecdn.com.br/956496_1_1.jpg" alt="Aspirador Portátil" />
+    <h3>Aspirador de Pó Portátil</h3>
+    <p>R$ 450,00</p>
+    <button onclick="adicionarAoCarrinho('Aspirador de Pó Portátil', 450.00)">Adicionar ao carrinho</button>
+  </div>
+
+  <div class="produto">
+    <img src="https://multibar.vtexassets.com/arquivos/ids/479222-800-auto?v=638665590772500000&width=800&height=auto&aspect=true" alt="Cafeteira Programável" />
+    <h3>Cafeteira Programável</h3>
+    <p>R$ 299,90</p>
+    <button onclick="adicionarAoCarrinho('Cafeteira Programável', 299.90)">Adicionar ao carrinho</button>
+  </div>
+
+  <div class="produto">
+    <img src="https://i.zst.com.br/thumbs/12/d/19/-19823320.jpg" alt="Ferro de Passar a Vapor" />
+    <h3>Ferro de Passar a Vapor</h3>
+    <p>R$ 159,90</p>
+    <button onclick="adicionarAoCarrinho('Ferro de Passar a Vapor', 159.90)">Adicionar ao carrinho</button>
+  </div>
+  <!-- ADICIONADO APÓS A ÚLTIMA CATEGORIA EXISTENTE (Outros Produtos) -->
+<!-- Smartphones -->
+<div class="categoria">
+  <h3>Smartphones</h3>
+  <div class="produto">
+    <img src="https://cdn.awsli.com.br/2500x2500/1271/1271561/produto/178856547/0e42a5bdbe.jpg" alt="iPhone 14 Pro" />
+    <h3>iPhone 14 Pro</h3>
+    <p>R$ 6999,90</p>
+    <button onclick="adicionarAoCarrinho('iPhone 14 Pro', 6999.90)">Adicionar ao carrinho</button>
+  </div>
+  <div class="produto">
+    <img src="https://www.adrenaline.com.br/wp-content/uploads/2023/11/smartphone-samsung-galaxy-s23-5g-128gb-preto-1-900x900.jpg" alt="Samsung Galaxy S23" />
+    <h3>Samsung Galaxy S23</h3>
+    <p>R$ 4999,90</p>
+    <button onclick="adicionarAoCarrinho('Samsung Galaxy S23', 4999.90)">Adicionar ao carrinho</button>
+  </div>
+</div>
+
+<!-- Videogames -->
+<div class="categoria">
+  <h3>Videogames</h3>
+  <div class="produto">
+    <img src="https://mirandacomputacao.jetassets.com.br/produto/48879-principal.png" alt="PlayStation 5" />
+    <h3>PlayStation 5</h3>
+    <p>R$ 3999,90</p>
+    <button onclick="adicionarAoCarrinho('PlayStation 5', 3999.90)">Adicionar ao carrinho</button>
+  </div>
+  <div class="produto">
+    <img src="https://sm.ign.com/ign_br/news/x/xbox-serie/xbox-series-x-logo-seemingly-revealed_92cd.jpg" alt="Xbox Series X" />
+    <h3>Xbox Series X</h3>
+    <p>R$ 3799,90</p>
+    <button onclick="adicionarAoCarrinho('Xbox Series X', 3799.90)">Adicionar ao carrinho</button>
+  </div>
+</div>
+
+<!-- PCs e Notebooks -->
+<div class="categoria">
+  <h3>PCs e Notebooks</h3>
+  <div class="produto">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRKNxnAPAbeL9LCsnORCrFg4_i6v2xsak2CxNFiunQfffQQBrlbW-OBeChtN2xeHPNLJvM7qmLLcjNnVd6zMWFm3ycLlYgxR6-eEi8ioQP6MGIvO4KgA4OyvFbUftavNrAjhw&usqp=CAc" alt="Notebook Gamer Acer" />
+    <h3>Notebook Gamer Acer</h3>
+    <p>R$ 5999,90</p>
+    <button onclick="adicionarAoCarrinho('Notebook Gamer Acer', 5999.90)">Adicionar ao carrinho</button>
+  </div>
+  <div class="produto">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQxByIONdTJy9nN-RGhr8ZgBxT0YpE6eIcrskWfn_vVX7vKbvz5T9LzuAMx9NWNzz4FyHfKEjbcFrZHjh1t6LIWaO1jjwlBO4dve-BN1JOuUrX2ohwCiqI0NU1k4O2fY3xcMO1pQ1pL9gg&usqp=CAc" alt="PC Gamer Ryzen 7" />
+    <h3>PC Gamer Ryzen 7</h3>
+    <p>R$ 6999,90</p>
+    <button onclick="adicionarAoCarrinho('PC Gamer Ryzen 7', 6999.90)">Adicionar ao carrinho</button>
+  </div>
+</div>
+
+<!-- Tênis -->
+<div class="categoria">
+  <h3>Tênis</h3>
+  <div class="produto">
+    <img src="data:image/jpeg;base64,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" alt="Tênis Nike Air Max" />
+    <h3>Tênis Nike Air Max</h3>
+    <p>R$ 499,90</p>
+    <button onclick="adicionarAoCarrinho('Tênis Nike Air Max', 499.90)">Adicionar ao carrinho</button>
+  </div>
+  <div class="produto">
+    <img src="data:image/jpeg;base64,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" alt="Tênis Asics Gel" />
+    <h3>Tênis Asics Gel</h3>
+    <p>R$ 389,90</p>
+    <button onclick="adicionarAoCarrinho('Tênis Asics Gel', 389.90)">Adicionar ao carrinho</button>
+  </div>
+</div>
+
+<!-- Roupas -->
+<div class="categoria">
+  <h3>Roupas</h3>
+  <div class="produto">
+    <img src="https://rogerstenis.vteximg.com.br/arquivos/ids/2863262-1000-1000/1000932803_1.jpg?v=638616965855330000" alt="Camiseta Adidas" />
+    <h3>Camiseta Adidas</h3>
+    <p>R$ 149,90</p>
+    <button onclick="adicionarAoCarrinho('Camiseta Adidas', 149.90)">Adicionar ao carrinho</button>
+  </div>
+  <div class="produto">
+    <img src="https://cdn.awsli.com.br/2500x2500/1285/1285039/produto/268094393/149-4xunriv3yq.jpg" alt="Jaqueta Nike Corta Vento" />
+    <h3>Jaqueta Nike Corta Vento</h3>
+    <p>R$ 329,90</p>
+    <button onclick="adicionarAoCarrinho('Jaqueta Nike Corta Vento', 329.90)">Adicionar ao carrinho</button>
+  </div>
+</div>
+
+</div>
+
+  </section>
+
+  <section id="contato">
+    <h2>Entre em Contato</h2>
+    <p>Email: Unamashop@gmail.com</p>
+    <p>Telefone: (91) 3815-6303</p>
+    <p>WhatsApp: (91) 98180-2585</p>
+    <p>Instagram: @unama_shop</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 UNAMA SHOP. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="siteigor.js"></script>
+</body>
+</html>

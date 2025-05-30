@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="siteigor.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Finalizar Compra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container-pagamento {
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    #pagamento {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    #qr-code {
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    #dados-cartao,
+    #dados-pix {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #dados-cartao h3,
+    #dados-pix h3 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #444;
+    }
+
+    label i {
+      margin-right: 6px;
+      color: #2a9d8f;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border 0.3s;
+    }
+
+    input:focus {
+      border-color: #2a9d8f;
+      outline: none;
+    }
+
+    #btn-pagar {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #e4e4e4;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #btn-pagar:hover {
+      background-color: #21867a;
+    }
+
+    #pix-info {
+      background-color: #f1fff6;
+      padding: 15px;
+      border: 1px solid #21867a;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    #contato {
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <img src="fotos/logo-removebg-preview.png" alt="logo" />
+      <img src="fotos/unama.webp" alt="UNAMA" />
+    </div>
+    <h1>Finalizar Compra</h1>
+    <nav>
+      <a href="siteigor.html">Home</a>
+      <a href="siteigorprodutos.html">Produtos</a>
+      <a href="siteigorcarrinho.html">Carrinho</a>
+      <a href="siteigorquemsomos.html">Quem Somos</a>
+    </nav>
+  </header>
+
+  <div class="container-pagamento">
+    <section id="pagamento">
+      <h2>Resumo da Compra</h2>
+      <ul id="itens-carrinho">
+        <!-- Itens do carrinho seriam inseridos dinamicamente -->
+      </ul>
+      <p id="total">Total: R$ 0,00</p>
+
+      <h3>Escolha a forma de pagamento:</h3>
+      <select id="metodo-pagamento">
+        <option value="cartao">Cartão de Crédito</option>
+        <option value="pix">PIX</option>
+      </select>
+
+      <!-- Campos do Cartão -->
+      <div id="dados-cartao" style="display: none;">
+        <h3>Dados do Cartão</h3>
+
+        <div class="form-group">
+          <label><i class="fas fa-credit-card"></i> Número do Cartão:</label>
+          <input type="text" id="numero-cartao" placeholder="**** **** **** ****" maxlength="19" />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Nome no Cartão:</label>
+          <input type="text" id="nome-cartao" placeholder="Nome Completo" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label><i class="fas fa-calendar-alt"></i> Validade:</label>
+            <input type="text" id="validade-cartao" placeholder="MM/AA" maxlength="5" />
+          </div>
+
+          <div class="form-group">
+            <label><i class="fas fa-lock"></i> CVV:</label>
+            <input type="text" id="cvv-cartao" placeholder="***" maxlength="3" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Campos do PIX -->
+      <div id="dados-pix" style="display: none;">
+        <h3>Dados para PIX</h3>
+
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Nome Completo:</label>
+          <input type="text" id="nome-pix" placeholder="Nome Completo" />
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-id-card"></i> CPF:</label>
+          <input type="text" id="cpf-pix" placeholder="000.000.000-00" maxlength="14" />
+        </div>
+      </div>
+
+      <!-- Exibição da chave PIX e QR Code -->
+      <div id="pix-info" style="display: none;">
+        <h3>Chave PIX Gerada</h3>
+        <p id="chave-pix">---</p>
+        <canvas id="qr-code" width="200" height="200"></canvas>
+      </div>
+
+      <button id="btn-pagar">Pagar</button>
+    </section>
+  </div>
+
+  <section id="contato">
+    <h2>Entre em Contato</h2>
+    <p>Email: Unamashop@gmail.com</p>
+    <p>Telefone: (91) 3815-6303</p>
+    <p>WhatsApp: (91) 98180-2585</p>
+    <p>Instagram: @unama_shop</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 UNAMA SHOP. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+  const metodoPagamento = document.getElementById('metodo-pagamento');
+  const dadosCartao = document.getElementById('dados-cartao');
+  const dadosPix = document.getElementById('dados-pix');
+  const nomePixInput = document.getElementById('nome-pix');
+  const cpfPixInput = document.getElementById('cpf-pix');
+  const pixInfo = document.getElementById('pix-info');
+  const chavePix = document.getElementById('chave-pix');
+  const qrCanvas = document.getElementById('qr-code');
+  const btnPagar = document.getElementById('btn-pagar');
+
+  metodoPagamento.addEventListener('change', () => {
+    const metodo = metodoPagamento.value;
+    dadosCartao.style.display = metodo === 'cartao' ? 'block' : 'none';
+    dadosPix.style.display = metodo === 'pix' ? 'block' : 'none';
+    pixInfo.style.display = 'none';
+  });
+
+  function gerarChavePixAleatoria() {
+    return 'chave-' + Math.random().toString(36).substring(2, 10) + '@pix.com';
+  }
+
+  function gerarQRCode(texto) {
+    const ctx = qrCanvas.getContext('2d');
+    ctx.clearRect(0, 0, qrCanvas.width, qrCanvas.height);
+    ctx.fillStyle = '#000';
+    for (let i = 0; i < 1000; i++) {
+      const x = Math.floor(Math.random() * qrCanvas.width);
+      const y = Math.floor(Math.random() * qrCanvas.height);
+      const size = Math.random() < 0.05 ? 4 : 2;
+      ctx.fillRect(x, y, size, size);
+    }
+  }
+
+  cpfPixInput.addEventListener('blur', () => {
+    const nome = nomePixInput.value.trim();
+    const cpf = cpfPixInput.value.trim();
+    if (nome && cpf.length >= 11) {
+      const chave = gerarChavePixAleatoria();
+      chavePix.textContent = chave;
+      gerarQRCode(chave);
+      pixInfo.style.display = 'block';
+    }
+  });
+
+  btnPagar.addEventListener('click', () => {
+    const metodo = metodoPagamento.value;
+
+    if (metodo === 'cartao') {
+      // Validação básica dos campos do cartão
+      const numero = document.getElementById('numero-cartao').value.trim();
+      const nome = document.getElementById('nome-cartao').value.trim();
+      const validade = document.getElementById('validade-cartao').value.trim();
+      const cvv = document.getElementById('cvv-cartao').value.trim();
+
+      if (!numero || !nome || !validade || !cvv) {
+        alert('Por favor, preencha todos os campos do cartão.');
+        return;
+      }
+
+      alert('Pagamento realizado com sucesso! Redirecionando para a página principal...');
+      setTimeout(() => {
+        window.location.href = 'siteigor.html';
+      }, 2000); // Redireciona após 2 segundos
+    } else {
+      alert('Para pagamentos via PIX, utilize a chave gerada.');
+    }
+  });
+
+  // Recuperar total do localStorage e exibir no resumo
+document.addEventListener("DOMContentLoaded", () => {
+  const total = localStorage.getItem("totalCompra") || "0.00";
+  document.getElementById("total").textContent = "Total: R$ " + parseFloat(total).toFixed(2);
+});
+
+</script>
