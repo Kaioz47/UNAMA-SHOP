@@ -2,7 +2,7 @@
 
 **UNAMA SHOP** é um site de comércio eletrônico desenvolvido como projeto acadêmico, com foco na venda de **eletrodomésticos** e **eletrônicos**. Totalmente construído com tecnologias de front-end (HTML, CSS e JavaScript), o site oferece uma navegação moderna, intuitiva e responsiva — tudo sem necessidade de back-end.
 
-![Página Inicial do UNAMA SHOP](img/captura_home.png)
+![Página Inicial do UNAMA SHOP](img/captura_carrossel.png)
 
 ---
 
