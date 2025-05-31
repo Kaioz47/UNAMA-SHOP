@@ -115,7 +115,7 @@ function adicionarAoCarrinho(idProduto) {
 
 ## 📘 Observações Finais
 
-Este projeto demonstra como é possível construir um e-commerce funcional com **apenas tecnologias de front-end**, simulando recursos reais como login, compras e organização de produtos.
+Este projeto demonstra como é possível construir um e-commerce funcional com **apenas tecnologias de front-end**, simulando recursos reais compras e organização de produtos.
 
 > **© 2025 UNAMA SHOP** – Todos os direitos reservados.  
 
