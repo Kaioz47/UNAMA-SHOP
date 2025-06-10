@@ -23,17 +23,25 @@
 
 Uma equipe dedicada à criação de uma experiência digital fluida e visualmente atrativa:
 
-- **Kaio Márcio** – *Desenvolvedor Front-End*  
-  > Responsável pela estrutura HTML, estilização CSS, carrossel, animações e interações JavaScript (incluindo o carrinho de compras).
+Kaio Márcio – Desenvolvedor Front-End
 
-- **Anthony Cardoso** – *Designer de Interface (UI/UX)*  
-  > Cuidou da identidade visual do site, escolha de cores, tipografia e responsividade para melhor usabilidade.
+Responsável pela estrutura HTML, estilização CSS, carrossel, animações e interações JavaScript (incluindo o carrinho de compras).
 
-- **Gabryella Gonçalves** – *Organizadora de Conteúdo*  
-  > Criou os textos, nomes de produtos, seções e descrições promocionais com foco em clareza e persuasão.
+Anthony Cardoso – Designer de Interface (UI/UX)
 
-- **Rafael Rocha** – *Documentador do Projeto*  
-  > Responsável pela documentação técnica do site, explicando a estrutura dos arquivos, funcionalidades e instruções de uso.
+Cuidou da identidade visual do site, escolha de cores, tipografia e responsividade para melhor usabilidade.
+
+Gabryella Gonçalves – Organizadora de Conteúdo
+
+Criou os textos, nomes de produtos, seções e descrições promocionais com foco em clareza e persuasão.
+
+Rafael Rocha – Documentador do Projeto
+
+Responsável pela documentação técnica do site, explicando a estrutura dos arquivos, funcionalidades e instruções de uso.
+
+Pablo Henrique – Testador e Validador de Qualidade (QA)
+
+Realizou testes funcionais e de usabilidade, identificando erros, garantindo o bom funcionamento do site em diferentes dispositivos e assegurando a qualidade final da entrega.
 
 ---
 
